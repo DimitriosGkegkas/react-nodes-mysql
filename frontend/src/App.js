@@ -12,12 +12,12 @@ export default function App() {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/movies"} className="navbar-brand">
-          Movies
+          Patients
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
             <Link to={"/movies"} className="nav-link">
-              Movies
+              Patients
             </Link>
           </li>
           <li className="nav-item">

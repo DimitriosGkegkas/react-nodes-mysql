@@ -4,14 +4,13 @@
 
 ## Overview
 
-This repository contains a Dockerized full stack application comprising a backend, frontend, MySQL database, and Nginx as a reverse proxy server. The application is structured to enable easy setup and deployment using Docker Compose.
+This repository contains a Dockerized full stack application comprising a backend, frontend, and Nginx as a reverse proxy server. The application is structured to enable easy setup and deployment using Docker Compose.
 
 ### Components:
 
 1. **Nginx**: Acts as a reverse proxy server, directing incoming requests to the appropriate backend or frontend service.
-2. **MySQL Database**: Stores application data and is accessed by the backend service.
-3. **Backend**: Node.js application using Express.js framework. It communicates with the MySQL database, utilizing Knex for seamless interaction.
-4. **Frontend**: React application that provides a user interface interacting with the backend APIs.
+2. **Backend**: Node.js application using Express.js framework. It communicates with the MSSQL database.
+3. **Frontend**: React application that provides a user interface interacting with the backend APIs.
 
 ---
 
@@ -33,20 +32,13 @@ docker-compose --file docker-compose.yml up --build
 
 These commands will start all the services defined in the respective Docker Compose files, ensuring they are built and running.
 
-### Accessing Services:
-
-- **Nginx**: The Nginx server is exposed on port `$PORT`. You can access it by navigating to `http://localhost:$PORT` in your web browser.
-- **MySQL Database**: The MySQL service is accessible internally by other services. No direct external access is provided.
-- **Backend**: Exposes APIs to interact with the application's data. It's linked to the MySQL database.
-- **Frontend**: Provides a user interface. It communicates with the backend APIs.
-
 ---
 
 ## Project Structure
 
 ### `./backend`
 
-Contains the source code for the backend Node.js application. It's built using Express.js framework and communicates with the MySQL database using Knex.
+Contains the source code for the backend Node.js application. It's built using Express.js framework and communicates with the MSSQL database.
 
 ### `./frontend`
 
@@ -58,7 +50,7 @@ Nginx configuration file defining the reverse proxy settings. Adjustments can be
 
 ### `.env`
 
-Environment variables file containing configuration settings for the application. Make sure to provide necessary variables like `DB_PASSWORD`, `DB_NAME`, `DB_USER`, and `BASE_URL`.
+Environment variables file containing configuration settings for the application. Make sure to provide necessary variables like `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `DB_HOST`, `DB_PORT`, `PORT`, and `BASE_URL`.
 
 ---
 

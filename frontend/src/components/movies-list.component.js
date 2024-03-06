@@ -78,7 +78,7 @@ const MoviesList = () => {
         </div>
       </div>
       <div className="col-md-6">
-        <h4>Movies List</h4>
+        <h4>Patients Present List</h4>
 
         <ul className="list-group">
           {movies &&
@@ -90,7 +90,7 @@ const MoviesList = () => {
                 onClick={() => setActiveMovies(Movies, index)}
                 key={index}
               >
-                {Movies.title}
+                {Movies["code_lit"]}
               </li>
             ))}
         </ul>
@@ -105,24 +105,24 @@ const MoviesList = () => {
       <div className="col-md-6">
         {currentMovies ? (
           <div>
-            <h4>Movies</h4>
+            <h4>Patient</h4>
             <div>
               <label>
-                <strong>Title:</strong>
+                <strong>référence_praticien:</strong>
               </label>{" "}
-              {currentMovies.title}
+              {currentMovies["référence_praticien"]}
             </div>
             <div>
               <label>
-                <strong>Description:</strong>
+                <strong>ensemble_hébergement:</strong>
               </label>{" "}
-              {currentMovies.description}
+              {currentMovies["ensemble_hébergement"]}
             </div>
             <div>
               <label>
                 <strong>Status:</strong>
               </label>{" "}
-              {currentMovies.published ? "Published" : "Pending"}
+              {"Present"}
             </div>
           </div>
         ) : (

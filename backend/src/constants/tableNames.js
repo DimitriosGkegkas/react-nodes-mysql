@@ -1,3 +1,3 @@
 module.exports = {
-  movie: 'movie',
+  patients: 'VX_patients_présents',
 };

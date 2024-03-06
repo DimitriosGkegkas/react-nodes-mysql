@@ -21,25 +21,8 @@ services:
     networks:
       - backend
       - frontend
-
-  mysqldb:
-    image: mysql:8.0
-    restart: unless-stopped
-    env_file: ./.env
-    environment:
-      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
-      - MYSQL_DATABASE=$DB_NAME
-    volumes:
-      - db:/var/lib/mysql
-    networks:
-      - backend
-  
   
   backend:
-    depends_on:
-      - mysqldb
-    links:
-      - mysqldb
     restart: on-failure
     build: ./backend
     env_file: ./.env
@@ -76,6 +59,5 @@ volumes:
   db:
 
 networks:
-  mysqldb:
   backend:
   frontend:

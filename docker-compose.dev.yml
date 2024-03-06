@@ -21,34 +21,18 @@ services:
     networks:
       - backend
       - frontend
-
-  mysqldb:
-    image: mysql:8.0
-    restart: unless-stopped
-    env_file: ./.env
-    environment:
-      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
-      - MYSQL_DATABASE=$DB_NAME
-    volumes:
-      - db:/var/lib/mysql
-    networks:
-      - backend
   
   
   backend:
-    depends_on:
-      - mysqldb
-    links:
-      - mysqldb
     restart: on-failure
     build: ./backend
     env_file: ./.env
     volumes:
       - ./backend/src:/backend/src
-    command: npm run migrate-seed-dev
+    command: npm run dev
     environment:
-      - DB_HOST=mysqldb
-      - DB_PORT=3306
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
       - DB_USER=$DB_USER
       - DB_PASSWORD=$DB_PASSWORD
       - DB_NAME=$DB_NAME

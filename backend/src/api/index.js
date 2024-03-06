@@ -1,6 +1,6 @@
 const express = require('express');
 const project = require('../constants/project');
-const movies = require('./movies/movies.routes');
+const patients = require('./patients/patients.routes');
 
 
 const router = express.Router();
@@ -11,6 +11,6 @@ router.get('/', (req, res) => {
   });
 });
 
-router.use('/movies', movies);
+router.use('/patients', patients);
 
 module.exports = router;
